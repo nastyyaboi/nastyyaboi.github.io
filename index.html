@@ -21,11 +21,11 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/9/9a/512x512_Dissolve_Noise_Texture.png');
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/noise_lines.png');
             pointer-events: none;
             z-index: 1;
             opacity: 0.1;
@@ -33,19 +33,13 @@
         }
 
         @keyframes noise {
-            0% {
+            0%, 20%, 50%, 80%, 100% {
                 transform: translate(0, 0);
             }
-            25% {
+            40% {
                 transform: translate(-5%, -5%);
             }
-            50% {
-                transform: translate(5%, 5%);
-            }
-            75% {
-                transform: translate(-5%, -5%);
-            }
-            100% {
+            60% {
                 transform: translate(5%, 5%);
             }
         }
