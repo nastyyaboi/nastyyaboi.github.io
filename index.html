@@ -58,8 +58,21 @@
             <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYTMlozYoK4oKphNlnwz583zbiBTYhNVtRVVTzpKrT9SIhnZ8nJxX2fGRJlWsQXulOuaKB_T7zsandFTnuVBhuGlU9PT_g=s2560" alt="_blank">
         </a>
         <audio loop autoplay>
-            <source src="https://docs.google.com/uc?export=open&id=1MWu2jrYTOMWDKwwEEe-YAcazl36bwAwK" type="audio/mp3">
+            <source src="https://docs.google.com/uc?export=open&id=1QMI1_BhyYnZ_e5Gd4JNAiruOj_qyNUuv" type="audio/mp3">
         </audio>
+<button onclick="togglePlayPause()">Play/Pause</button>
     </div>
+
+    <script>
+        // JavaScript function i yoinked lmao
+        function togglePlayPause() {
+            var audio = document.getElementById('backgroundMusic');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
 </body>
 </html>
