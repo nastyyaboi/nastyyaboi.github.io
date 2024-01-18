@@ -70,9 +70,54 @@
             filter: invert(100%);
             transform: scale(1.1);
         }
+
+         body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
+
+
+<video id="video-background" autoplay loop muted>
+    <source src="https://cdn.discordapp.com/attachments/973300759166853140/1197324718584377364/artartart.mp4" type="video/mp4">
+</video>
+
+    <script>
+    let idleTimer;
+    const video = document.getElementById('video-background');
+
+    function startIdleTimer() {
+        idleTimer = setTimeout(() => {
+            video.play();
+        }, 10000);
+    }
+
+    function resetIdleTimer() {
+        clearTimeout(idleTimer);
+        video.pause();
+        video.currentTime = 0;
+        startIdleTimer();
+    }
+
+    document.addEventListener('mousemove', resetIdleTimer);
+    document.addEventListener('keypress', resetIdleTimer);
+
+    startIdleTimer();r
+
+</script>
+    
     <div>
          <a href="https://twitter.com/nastyyaboi">
             <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYR_XUbnRBRP0NbTBNYWKSndja3iwG6z1XNI2DdAvrVoet_4HMNJJk6qNTCd1whF6m9cXAkY24mI01HqBIuEbD4UjWsnyA=s2560">
