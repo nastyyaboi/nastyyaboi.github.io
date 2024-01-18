@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +26,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e0244541-574f-44c2-9984-4ed40fc7bb3e/d4jknzk-7748025b-e7d9-4c1a-bae3-a09d7e2913c9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UwMjQ0NTQxLTU3NGYtNDRjMi05OTg0LTRlZDQwZmM3YmIzZVwvZDRqa256ay03NzQ4MDI1Yi1lN2Q5LTRjMWEtYmFlMy1hMDlkN2UyOTEzYzkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.a1ZG0sbfbPekFc3ub6-cYSpXgjubRKkGH-ZEIDM1Bsk');
+            background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e0244541-574f-44c2-9984-4ed40fc7bb3e/d4jknzk-7748025b-e7d9-4c1a-bae3-a09d7e2913c9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UwMjQ0NTQxLTU3NGYtNDRjMi05OTg0LTRlZDQwZmM3YmIzZVwvZDRqa256ay03NzQ4MDI1Yi1lN2Q5LTRjMWEtYmFlMy1hMDlkN2UyOTEzYzkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.a1ZG0sbfbPekFc3ub6-cYSpXgjubRKkGH-ZEIDM1Bsk');
             pointer-events: none;
             z-index: 1;
             opacity: 0.1;
@@ -38,27 +37,22 @@
             0% {
                 transform: translate(0, 0);
             }
-
             25% {
                 transform: translate(-5%, -5%);
             }
-
             50% {
                 transform: translate(5%, 5%);
             }
-
             75% {
                 transform: translate(-5%, -5%);
             }
-
             100% {
                 transform: translate(5%, 5%);
             }
         }
-
         div {
             text-align: center;
-            color: white;
+            color: white; 
         }
 
         a {
@@ -76,22 +70,11 @@
             filter: invert(100%);
             transform: scale(1.1);
         }
-
-        video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
-        }
     </style>
 </head>
-
 <body>
     <div>
-        <a href="https://twitter.com/nastyyaboi">
+         <a href="https://twitter.com/nastyyaboi">
             <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYR_XUbnRBRP0NbTBNYWKSndja3iwG6z1XNI2DdAvrVoet_4HMNJJk6qNTCd1whF6m9cXAkY24mI01HqBIuEbD4UjWsnyA=s2560">
         </a>
         <a href="https://gtaforums.com/topic/989098-console-visuals-the-complete-edition/">
@@ -103,40 +86,6 @@
         <a href="https://www.dixmor-hospital.com/mods/view/complete-ui-redux">
             <img src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYSbo6wC_9zot1PYSNuQz5Z6lwowzyePSBeKz6yG4X01ppdpDZZGpF1u-6oDbSQeTmPtoT8aNmDr6oP-AewcAy6WFJ52Zw=s2560">
         </a>
-        <video id="backgroundVideo" autoplay loop muted>
-            <source src="https://cdn.discordapp.com/attachments/973300759166853140/1197324718584377364/artartart.mp4" type="video/mp4">
-        </video>
     </div>
-
-    <script>
-        var idleTime = 0;
-
-        function timerIncrement() {
-            idleTime++;
-            if (idleTime >= 10) {
-                document.getElementById('backgroundVideo').style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        var idleInterval = setInterval(timerIncrement, 1000);
-
-        window.addEventListener('mousemove', function () {
-            idleTime = 0;
-        });
-
-        window.addEventListener('touchstart', function () {
-            idleTime = 0;
-        });
-
-        window.addEventListener('mousemove', function () {
-            document.getElementById('backgroundVideo').pause();
-        });
-
-        window.addEventListener('touchstart', function () {
-            document.getElementById('backgroundVideo').pause();
-        });
-    </script>
 </body>
-
 </html>
