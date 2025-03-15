@@ -46,7 +46,18 @@
             pointer-events: none; /* Prevent interaction with the noise overlay */
             z-index: 9999; /* Ensure it's above other content */
             opacity: 0.1; /* Adjust opacity to make the noise subtle */
-       }
+            animation: moveNoise 10s infinite linear; /* Add animation to move the noise */
+}
+
+/* Keyframe animation for moving the noise texture */
+@keyframes moveNoise {
+    0% {
+        background-position: 0 0; /* Start at the initial position */
+    }
+    100% {
+        background-position: 100% 100%; /* End at a different position */
+    }
+}
         .footer-text {
             position: fixed;
             bottom: 20px;
