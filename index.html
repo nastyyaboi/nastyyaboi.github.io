@@ -54,6 +54,43 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Instagram_simple_icon.svg/1024px-Instagram_simple_icon.svg.png" alt="Instagram">
         </a>
     </div>
-    
+<div id="clock" class="clock"></div>
+
+    <script>
+        // Function to update the time every second
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var period = "AM";
+
+            // 12-hour format
+            if (hours >= 12) {
+                period = "PM";
+                if (hours > 12) {
+                    hours = hours - 12;
+                }
+            }
+            if (hours === 0) {
+                hours = 12;
+            }
+
+            // Add leading zero for minutes and seconds if needed
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            var timeString = hours + ":" + minutes + ":" + seconds + " " + period;
+
+            // Display the time in the clock div
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        // Call updateClock every second
+        setInterval(updateClock, 1000);
+
+        // Initial call to display clock right away
+        updateClock();
+    </script>
 </body>
 </html>
