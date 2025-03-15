@@ -36,6 +36,15 @@
             height: auto;
             filter: invert(1); 
         }
+        .footer-text {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: #333; /* Dark gray color */
+            font-size: 14px;
+            font-weight: bold;
+        }
+
         .clock {
             position: absolute;
             top: 20px;
@@ -120,14 +129,7 @@
                 top: 15px;  /* Smaller padding on mobile */
                 right: 15px; /* Smaller padding on mobile */
         }
-        .footer-text {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            color: #333; /* Dark gray color */
-            font-size: 14px;
-            font-weight: normal;
-        }
+
     </style>
 </head>
 <body>
@@ -146,6 +148,9 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Instagram_simple_icon.svg/1024px-Instagram_simple_icon.svg.png" alt="Instagram">
         </a>
     </div>
+
+<div class="footer-text">©2025 - opiumdealer.</div>
+
 <div id="clock" class="clock"></div>
 
     <script>
@@ -213,6 +218,5 @@
             document.getElementById("slideMenu").style.transform = "translateX(-100%)"; // Slide out (off-screen)
         }
    </script>
-    <div class="footer-text">©2025 - opiumdealer.</div>
 </body>
 </html>
