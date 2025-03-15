@@ -102,13 +102,22 @@
         .closebtn {
             font-size: 38px;
             position: absolute;
-            top: 15px;
-            right: 25px;
+            top: 20px;
+            right: 20px;
             color: white;
             background: none;
             border: none;
             cursor: pointer;
             z-index: 2
+
+          @media screen and (max-width: 600px) {
+            #slideMenu {
+                width: 80%; /* Make the slide menu 80% of the screen width on mobile */
+            }
+
+            .closebtn {
+                top: 15px;  /* Smaller padding on mobile */
+                right: 15px; /* Smaller padding on mobile */
         }
     </style>
 </head>
