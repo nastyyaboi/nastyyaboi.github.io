@@ -72,14 +72,14 @@
         /* Slide-in menu styles */
         #slideMenu {
             height: 100%;
-            width: 320px;
+            width: 500px; /* Increased width of the menu */
             position: fixed;
             top: 0;
-            left: -500px; /* Initially hidden off-screen */
+            left: -500px; /* Initially hidden off-screen with increased width */
             background-color: #333;
             color: white;
             overflow-x: hidden;
-            transition: 0.8s;
+            transition: 0.5s;
             padding-top: 60px;
             z-index: 1;
         }
@@ -99,10 +99,10 @@
 
         /* Close button */
         .closebtn {
-            font-size: 45px;
+            font-size: 36px;
             position: absolute;
             top: 0;
-            right: 2px;
+            right: 25px;
             color: white;
             background: none;
             border: none;
