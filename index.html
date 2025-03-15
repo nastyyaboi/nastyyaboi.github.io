@@ -70,19 +70,19 @@
         }
 
         /* Slide-in menu styles */
-        #slideMenu {
+       #slideMenu {
             height: 100%;
-            width: 330px; /* Increased width of the menu */
+            width: 320px; /* Increased width of the menu */
             position: fixed;
             top: 0;
-            left: -500px; /* Initially hidden off-screen with increased width */
+            left: 0; /* Initially positioned at the left edge of the screen */
             background-color: #333;
             color: white;
             overflow-x: hidden;
-            transition: 0.5s ease;
+            transition: transform 0.5s ease; /* Using transform for smooth slide */
             padding-top: 60px;
             z-index: 1;
-            transform: translateX(-100%);
+            transform: translateX(-100%); /* Initially hidden off-screen */
         }
 
         #slideMenu a {
