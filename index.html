@@ -1,104 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>opmdlr</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <img src="https://i.imgur.com/xYYITnU.png" alt="Logo" class="logo">
-    </header>
-</body>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nastyyaboi</title>
-    <link rel="icon" href="https://gtaforums.com/uploads/monthly_2024_11/Untitled1.thumb.png.0202e1e495fbf0cf7d5ee6806fd37d38.png" type="image/x-icon">
+    <title>Simple Website with Logo</title>
     <style>
+        /* Basic styling for the page */
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            position: relative;
-            overflow: hidden;
-            background: url('https://gtaforums.com/uploads/monthly_2024_11/Untitled1.thumb.png.0202e1e495fbf0cf7d5ee6806fd37d38.png') no-repeat center center fixed;
-            background-size: 100% 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             height: 100vh;
+            background-color: #f4f4f4;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e0244541-574f-44c2-9984-4ed40fc7bb3e/d4jknzk-7748025b-e7d9-4c1a-bae3-a09d7e2913c9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UwMjQ0NTQxLTU3NGYtNDRjMi05OTg0LTRlZDQwZmM3YmIzZVwvZDRqa256ay03NzQ4MDI1Yi1lN2Q5LTRjMWEtYmFlMy1hMDlkN2UyOTEzYzkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.a1ZG0sbfbPekFc3ub6-cYSpXgjubRKkGH-ZEIDM1Bsk');
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.1;
-            animation: noise 0.2s infinite linear;
-        }
-
-        @keyframes noise {
-            0% {
-                transform: translate(0, 0);
-            }
-            25% {
-                transform: translate(-5%, -5%);
-            }
-            50% {
-                transform: translate(5%, 5%);
-            }
-            75% {
-                transform: translate(-5%, -5%);
-            }
-            100% {
-                transform: translate(5%, 5%);
-            }
-        }
-        div {
+        /* Style for the header */
+        header {
+            width: 100%;
             text-align: center;
-            color: white; 
+            padding: 20px 0;
+            background-color: #333;
         }
 
-        a {
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 60%;
+        /* Logo image styling */
+        .logo {
+            width: 80px;  /* Adjust this to your desired size */
             height: auto;
-            margin-bottom: 20px;
-            transition: filter 0.6s ease-in-out, transform 0.4s ease-in-out;
         }
 
-        img:hover {
-            filter: invert(100%);
-            transform: scale(1.1);
+        /* Styling for the main content */
+        main {
+            flex-grow: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Basic footer styling */
+        footer {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            text-align: center;
         }
     </style>
+</head>
 <body>
-    <div>
-         <a href="https://x.com/opmdlr">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/X_logo_2023_original.svg/300px-X_logo_2023_original.svg.png?20230728155658">
-        </a>
-        <a href="https://www.youtube.com/@nastyyaboi">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/YouTube_2024_%28Print%29.svg/120px-YouTube_2024_%28Print%29.svg.png">
-        </a>
-        <a href="https://gtaforums.com/topic/989098-console-visuals-the-complete-edition/">
-            <img src="https://i.imgur.com/jQ6Os0j.png">
-        </a>
-        <a href="https://gtaforums.com/topic/989368-compact-hud/">
-            <img src="https://i.imgur.com/M9XWSV6.png">
-        </a>
-        <a href="https://www.dixmor-hospital.com/mods/view/complete-ui-redux">
-            <img src="https://i.imgur.com/Mupzt2F.png">
-        </a>
-    </div>
+
+
+    <header>
+        <img src="https://i.imgur.com/Xy1D1Au.png" alt="opmLogo" class="opmlogo">
+    </header>
 </body>
 </html>
