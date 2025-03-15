@@ -186,13 +186,13 @@
     <script>
         // Function to open the slide-in menu
         function openSlideMenu() {
-            document.getElementById("slideMenu").style.left = "0";
+            document.getElementById("slideMenu").style.transform = "translateX(0)"; // Slide in
         }
 
         // Function to close the slide-in menu
         function closeSlideMenu() {
-            document.getElementById("slideMenu").style.left = "-250px";
+            document.getElementById("slideMenu").style.transform = "translateX(-100%)"; // Slide out (off-screen)
         }
- </script>
+   </script>
 </body>
 </html>
