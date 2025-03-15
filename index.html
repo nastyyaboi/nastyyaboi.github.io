@@ -40,10 +40,10 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            font-size: 20px;
+            font-size: 15px;
             font-weight: bold;
             color: white; /* White text color for the clock */
-            background-color: #333; /* Dark background for contrast */
+            background-color: #000; /* Dark background for contrast might change it later idk*/
             padding: 10px;
             border-radius: 5px;
     </style>
@@ -67,15 +67,16 @@
 <div id="clock" class="clock"></div>
 
     <script>
-        // Function to update the time every second
+        // function to update the time and date every second
         function updateClock() {
             var now = new Date();
+
+            // time in 12 hours format
             var hours = now.getHours();
             var minutes = now.getMinutes();
             var seconds = now.getSeconds();
             var period = "AM";
 
-            // 12-hour format
             if (hours >= 12) {
                 period = "PM";
                 if (hours > 12) {
@@ -86,20 +87,23 @@
                 hours = 12;
             }
 
-            // Add leading zero for minutes and seconds if needed
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
 
-            var timeString = hours + ":" + minutes + ":" + seconds + " " + period;
+            // get the current date
+            var day = now.getDate();
+            var month = now.getMonth() + 1; 
+            var year = now.getFullYear();
+            var dayOfWeek = now.toLocaleString('en-us', { weekday: 'long' });
 
-            // Display the time in the clock div
-            document.getElementById('clock').textContent = timeString;
+            var timeString = hours + ":" + minutes + ":" + seconds + " " + period;
+            var dateString = dayOfWeek + ", " + month + "/" + day + "/" + year;
+
+            document.getElementById('clock').textContent = dateString + " | " + timeString;
         }
 
-        // Call updateClock every second
         setInterval(updateClock, 1000);
 
-        // Initial call to display clock right away
         updateClock();
     </script>
 </body>
