@@ -45,74 +45,17 @@
             background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e0244541-574f-44c2-9984-4ed40fc7bb3e/d4jknzk-7748025b-e7d9-4c1a-bae3-a09d7e2913c9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UwMjQ0NTQxLTU3NGYtNDRjMi05OTg0LTRlZDQwZmM3YmIzZVwvZDRqa256ay03NzQ4MDI1Yi1lN2Q5LTRjMWEtYmFlMy1hMDlkN2UyOTEzYzkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.a1ZG0sbfbPekFc3ub6-cYSpXgjubRKkGH-ZEIDM1Bsk'); /* Replace with your noise image URL */
     pointer-events: none; /* Prevent interaction with the noise overlay */
     z-index: 9999; /* Ensure it's above other content */
-    opacity: 0.15; /* Adjust opacity for the noise */
-    animation: shakeNoise 0.05s infinite linear; /* Fast shaking for TV-like effect */
+    opacity: 0.1; /* Adjust opacity for the noise */
+    animation: staticScroll 0.1s linear infinite; /* Fast horizontal movement */
 }
 
-/* Keyframe animation for TV-like static shaking effect */
-@keyframes shakeNoise {
+/* Keyframe animation for fast, one-directional TV-like noise scroll */
+@keyframes staticScroll {
     0% {
-        transform: translateX(0) translateY(0); /* No movement */
-    }
-    5% {
-        transform: translateX(5px) translateY(5px); /* Small right-down movement */
-    }
-    10% {
-        transform: translateX(-5px) translateY(-5px); /* Small left-up movement */
-    }
-    15% {
-        transform: translateX(7px) translateY(-3px); /* Small right-up movement */
-    }
-    20% {
-        transform: translateX(-8px) translateY(2px); /* Small left-down movement */
-    }
-    25% {
-        transform: translateX(6px) translateY(4px); /* Slight right-down movement */
-    }
-    30% {
-        transform: translateX(-5px) translateY(-6px); /* Slight left-up movement */
-    }
-    35% {
-        transform: translateX(8px) translateY(0); /* Slight right movement */
-    }
-    40% {
-        transform: translateX(-7px) translateY(5px); /* Slight left-down movement */
-    }
-    45% {
-        transform: translateX(4px) translateY(-7px); /* Slight right-up movement */
-    }
-    50% {
-        transform: translateX(-4px) translateY(7px); /* Slight left-down movement */
-    }
-    55% {
-        transform: translateX(7px) translateY(2px); /* Slight right-down movement */
-    }
-    60% {
-        transform: translateX(-8px) translateY(-5px); /* Slight left-up movement */
-    }
-    65% {
-        transform: translateX(3px) translateY(-3px); /* Slight right-up movement */
-    }
-    70% {
-        transform: translateX(-6px) translateY(4px); /* Slight left-down movement */
-    }
-    75% {
-        transform: translateX(5px) translateY(5px); /* Slight right-down movement */
-    }
-    80% {
-        transform: translateX(-3px) translateY(3px); /* Slight left-up movement */
-    }
-    85% {
-        transform: translateX(6px) translateY(0); /* Slight right movement */
-    }
-    90% {
-        transform: translateX(-5px) translateY(-6px); /* Slight left-up movement */
-    }
-    95% {
-        transform: translateX(7px) translateY(4px); /* Slight right-down movement */
+        background-position: 0 0; /* Start position */
     }
     100% {
-        transform: translateX(0) translateY(0); /* Reset back to start position */
+        background-position: 2000px 0; /* Scroll very fast to the right */
     }
 }
         .footer-text {
