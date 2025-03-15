@@ -46,6 +46,55 @@
             background-color: #000; /* Dark background for contrast might change it later idk*/
             padding: 10px;
             border-radius: 5px;
+        }
+            .hamburger {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* Slide-in menu styles */
+        #slideMenu {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px; /* Initially hidden off-screen */
+            background-color: #333;
+            color: white;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1;
+        }
+
+        #slideMenu a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        #slideMenu a:hover {
+            background-color: #575757;
+        }
+
+        /* Close button */
+        .closebtn {
+            font-size: 36px;
+            position: absolute;
+            top: 0;
+            right: 25px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -106,5 +155,29 @@
 
         updateClock();
     </script>
+     <div class="hamburger-container" onclick="openSlideMenu()">
+        <div class="hamburger">&#9776;</div> <!-- Hamburger icon -->
+        <div class="mods-text">Mods</div> <!-- Mods text next to hamburger -->
+    </div>
+
+    <!-- Slide-in Menu -->
+    <div id="slideMenu">
+        <button class="closebtn" onclick="closeSlideMenu()">&times;</button>
+        <a href="https://gtaforums.com/topic/989098-console-visuals-the-complete-edition/" target="_blank">Console Visuals - GTAIV</a>
+        <a href="https://gtaforums.com/topic/989368-compact-hud/" target="_blank">Compact HUD - GTAIV</a>
+        <a href="https://www.dixmor-hospital.com/mods/view/complete-ui-redux" target="_blank">Complete UI Redux - Manhunt</a>
+        <a href="https://gtaforums.com/topic/983493-grand-theft-auto-liberty-city-01/" target="_blank">Liberty City'01 - GTAIII</a>
+    </div>
+
+    <script>
+        // Function to open the slide-in menu
+        function openSlideMenu() {
+            document.getElementById("slideMenu").style.left = "0";
+        }
+
+        // Function to close the slide-in menu
+        function closeSlideMenu() {
+            document.getElementById("slideMenu").style.left = "-250px";
+        }
 </body>
 </html>
