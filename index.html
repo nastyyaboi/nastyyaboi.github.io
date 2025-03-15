@@ -46,18 +46,27 @@
             pointer-events: none; /* Prevent interaction with the noise overlay */
             z-index: 9999; /* Ensure it's above other content */
             opacity: 0.1; /* Adjust opacity to make the noise subtle */
-            animation: moveNoise 10s infinite linear; /* Add animation to move the noise */
-}
+            animation: shakeNoise 0.1s infinite linear; /* Shake animation with 0.1s duration */
+        }
 
-/* Keyframe animation for moving the noise texture */
-@keyframes moveNoise {
-    0% {
-        background-position: 0 0; /* Start at the initial position */
-    }
-    100% {
-        background-position: 100% 100%; /* End at a different position */
-    }
-}
+        /* Keyframe animation for shaking the noise texture */
+        @keyframes shakeNoise {
+            0% {
+                transform: translateX(0) translateY(0); /* No movement */
+            }
+            25% {
+                transform: translateX(-5px) translateY(5px); /* Slight move to the left and down */
+            }
+            50% {
+                transform: translateX(5px) translateY(-5px); /* Slight move to the right and up */
+            }
+            75% {
+                transform: translateX(-5px) translateY(5px); /* Slight move to the left and down */
+            }
+            100% {
+                transform: translateX(0) translateY(0); /* Back to the original position */
+            }
+        }
         .footer-text {
             position: fixed;
             bottom: 20px;
