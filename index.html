@@ -40,24 +40,24 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 120%;
+            height: 120%;
             background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e0244541-574f-44c2-9984-4ed40fc7bb3e/d4jknzk-7748025b-e7d9-4c1a-bae3-a09d7e2913c9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UwMjQ0NTQxLTU3NGYtNDRjMi05OTg0LTRlZDQwZmM3YmIzZVwvZDRqa256ay03NzQ4MDI1Yi1lN2Q5LTRjMWEtYmFlMy1hMDlkN2UyOTEzYzkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.a1ZG0sbfbPekFc3ub6-cYSpXgjubRKkGH-ZEIDM1Bsk'); /* Replace with your noise image URL */
-    pointer-events: none; /* Prevent interaction with the noise overlay */
-    z-index: 9999; /* Ensure it's above other content */
-    opacity: 0.1; /* Adjust opacity for the noise */
-    animation: staticScroll 0.2s linear infinite; /* Fast horizontal movement */
-}
+            pointer-events: none; /* Prevent interaction with the noise overlay */
+            z-index: 9999; /* Ensure it's above other content */
+            opacity: 0.1; /* Adjust opacity for the noise */
+            animation: staticScroll 0.01s linear infinite; /* Extremely fast movement to the top-left */
+        }
 
-/* Keyframe animation for fast, one-directional TV-like noise scroll */
-@keyframes staticScroll {
-    0% {
-        background-position: 0 0; /* Start position */
-    }
-    100% {
-        background-position: 2000px 0; /* Scroll very fast to the right */
-    }
-}
+        /* Keyframe animation for fast, top-left movement */
+        @keyframes staticScroll {
+            0% {
+                background-position: 0 0; /* Start position at top-left */
+            }
+            100% {
+                background-position: -2000px -2000px; /* Move rapidly to top-left */
+            }
+        }
         .footer-text {
             position: fixed;
             bottom: 20px;
