@@ -7,151 +7,170 @@
     <link rel="icon" href="https://gtaforums.com/uploads/monthly_2024_11/Untitled1.thumb.png.0202e1e495fbf0cf7d5ee6806fd37d38.png" type="image/x-icon">
     <style>
       html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: white;
-        }
-    .center-viewport {
-      height: 100vh;              /* full viewport height */
-      display: flex;
-      align-items: center;        /* vertical center */
-      justify-content: center;    /* horizontal center */
-      background: transparent; 
-    }
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+          background-color: #000;
+          color: white;
+      }
 
-    /* Responsive logo sizing */
-    .center-viewport img {
-      max-width: 80vw;            /* at most 40% of viewport width */
-      max-height: 100vh;           /* but no taller than 60% of viewport height */
-      width: auto;
-      height: auto;
-      display: block;
-        }
-        .logo img {
-            width: 1000px;
-            height: 900px;
-        }
-        .content {
-            text-align: center;
-            padding: 20px;
-        }
-       .social-icons {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;   
-            display: flex;
-            gap: 15px;
-        }
-        .social-icons img {
-            width: 30px; 
-            height: auto;
-            filter: invert(1); 
-        }
-        .footer-text {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            color: #333; /* Dark gray color */
-            font-size: 10px;
-            font-weight: normal;
-        }
+      .center-viewport {
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+      }
 
-        .clock {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 15px;
-            font-weight: bold;
-            color: white; /* White text color for the clock */
-            background-color: #000; /* Dark background for contrast might change it later idk*/
-            padding: 10px;
-            border-radius: 5px;
-        }
-             .hamburger-container {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            align-items: center;
-            color: white;
-            cursor: pointer;
-            z-index: 2;
-        }
+      /* Logo container for fading logos */
+      .logo-container {
+          position: relative;
+          width: 100%;
+          max-width: 1000px;
+          height: auto;
+      }
 
-        .hamburger {
-            font-size: 30px;
-        }
+      .logo-container img {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+      }
 
-        .mods-text {
-            margin-left: 10px;
-            font-size: 13px;
-            color: white;
-            font-weight: bold;
-        }
+      .logo-container img.active {
+          opacity: 1;
+      }
 
-        /* Slide-in menu styles */
-       #slideMenu {
-            height: 100%;
-            width: 340px; /* Increased width of the menu */
-            position: fixed;
-            top: 0;
-            left: 0; /* Initially positioned at the left edge of the screen */
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-            backdrop-filter: blur(10px); /* Apply a blur effect to the background */
-            color: white;
-            overflow-x: hidden;
-            transition: transform 0.5s ease; /* Using transform for smooth slide */
-            padding-top: 60px;
-            z-index: 1;
-            transform: translateX(-100%); /* Initially hidden off-screen */
-        }
+      .content {
+          text-align: center;
+          padding: 20px;
+      }
 
-        #slideMenu a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 20px;
-            color: white;
-            display: block;
-            transition: 0.3s;
-        }
+      .social-icons {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;   
+          display: flex;
+          gap: 15px;
+      }
 
-        #slideMenu a:hover {
-            background-color: #575757;
-        }
+      .social-icons img {
+          width: 30px; 
+          height: auto;
+          filter: invert(1); 
+      }
 
-        /* Close button */
-        .closebtn {
-            font-size: 38px;
-            position: absolute;
-            top: 11px;
-            right: 10px;
-            color: white;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 2
+      .footer-text {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          color: #333;
+          font-size: 10px;
+          font-weight: normal;
+      }
 
-          @media screen and (max-width: 600px) {
-            #slideMenu {
-                width: 80%; /* Make the slide menu 80% of the screen width on mobile */
-            }
+      .clock {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          font-size: 15px;
+          font-weight: bold;
+          color: white;
+          background-color: #000;
+          padding: 10px;
+          border-radius: 5px;
+      }
 
-            .closebtn {
-                top: 15px;  /* Smaller padding on mobile */
-                right: 15px; /* Smaller padding on mobile */
-        }
+      .hamburger-container {
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          display: flex;
+          align-items: center;
+          color: white;
+          cursor: pointer;
+          z-index: 2;
+      }
 
+      .hamburger {
+          font-size: 30px;
+      }
+
+      .mods-text {
+          margin-left: 10px;
+          font-size: 13px;
+          color: white;
+          font-weight: bold;
+      }
+
+      #slideMenu {
+          height: 100%;
+          width: 340px;
+          position: fixed;
+          top: 0;
+          left: 0;
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(10px);
+          color: white;
+          overflow-x: hidden;
+          transition: transform 0.5s ease;
+          padding-top: 60px;
+          z-index: 1;
+          transform: translateX(-100%);
+      }
+
+      #slideMenu a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 20px;
+          color: white;
+          display: block;
+          transition: 0.3s;
+      }
+
+      #slideMenu a:hover {
+          background-color: #575757;
+      }
+
+      .closebtn {
+          font-size: 38px;
+          position: absolute;
+          top: 11px;
+          right: 10px;
+          color: white;
+          background: none;
+          border: none;
+          cursor: pointer;
+          z-index: 2;
+      }
+
+      @media screen and (max-width: 600px) {
+          #slideMenu {
+              width: 80%;
+          }
+          .closebtn {
+              top: 15px;
+              right: 15px;
+          }
+      }
     </style>
 </head>
 <body>
 
-    <div class="center-viewport">
-        <img src="https://i.imgur.com/aEBGNxg.gif" alt="Logo">
+    <div class="center-viewport logo-container">
+        <img src="https://i.imgur.com/aEBGNxg.gif" class="active" alt="Logo 1">
+        <img src="https://i.imgur.com/bFcUrJt.gif" alt="Logo 2">
+        <img src="https://i.imgur.com/K68Mp0C.gif" alt="Logo 3">
+        <img src="https://i.imgur.com/v433Weo.gif" alt="Logo 4">
     </div>
-<div class="social-icons">
+
+    <div class="social-icons">
         <a href="https://x.com/opmdlr" target="_blank" rel="noopener noreferrer">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/X_logo_2023_original.svg/300px-X_logo_2023_original.svg.png?20230728155658" alt="X">
         </a>
@@ -160,56 +179,15 @@
         </a>
     </div>
 
-<div class="footer-text">© 2025 OD.</div>
+    <div class="footer-text">© 2025 OD.</div>
 
-<div id="clock" class="clock"></div>
+    <div id="clock" class="clock"></div>
 
-    <script>
-        // function to update the time and date every second
-        function updateClock() {
-            var now = new Date();
-
-            // time in 12 hours format
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
-            var seconds = now.getSeconds();
-            var period = "AM";
-
-            if (hours >= 12) {
-                period = "PM";
-                if (hours > 12) {
-                    hours = hours - 12;
-                }
-            }
-            if (hours === 0) {
-                hours = 12;
-            }
-
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            // get the current date
-            var day = now.getDate();
-            var month = now.getMonth() + 1; 
-            var year = now.getFullYear();
-            var dayOfWeek = now.toLocaleString('en-us', { weekday: 'long' });
-
-            var timeString = hours + ":" + minutes + ":" + seconds + " " + period;
-            var dateString = dayOfWeek + ", " + month + "/" + day + "/" + year;
-
-            document.getElementById('clock').textContent = dateString + " | " + timeString;
-        }
-
-        setInterval(updateClock, 1000);
-
-        updateClock();
-    </script>
-     <div class="hamburger-container" onclick="openSlideMenu()">
-        <div class="hamburger">&#9776;</div> <!-- Hamburger icon -->
-        <div class="mods-text">Mods</div> <!-- Mods text next to hamburger -->
+    <div class="hamburger-container" onclick="openSlideMenu()">
+        <div class="hamburger">&#9776;</div>
+        <div class="mods-text">Mods</div>
     </div>
 
-    <!-- Slide-in Menu -->
     <div id="slideMenu">
         <button class="closebtn" onclick="closeSlideMenu()">&times;</button>
         <a href="https://gtaforums.com/topic/989098-console-visuals-the-complete-edition/" target="_blank">Console Visuals - GTAIV</a>
@@ -220,16 +198,53 @@
     </div>
 
     <script>
-        // Function to open the slide-in menu
+        // Clock update
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var period = "AM";
+
+            if (hours >= 12) {
+                period = "PM";
+                if (hours > 12) hours -= 12;
+            }
+            if (hours === 0) hours = 12;
+
+            minutes = minutes < 10 ? "0"+minutes : minutes;
+            seconds = seconds < 10 ? "0"+seconds : seconds;
+
+            var day = now.getDate();
+            var month = now.getMonth() + 1;
+            var year = now.getFullYear();
+            var dayOfWeek = now.toLocaleString('en-us', { weekday: 'long' });
+
+            var timeString = hours + ":" + minutes + ":" + seconds + " " + period;
+            var dateString = dayOfWeek + ", " + month + "/" + day + "/" + year;
+
+            document.getElementById('clock').textContent = dateString + " | " + timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Slide menu
         function openSlideMenu() {
-            document.getElementById("slideMenu").style.transform = "translateX(0)"; // Slide in
+            document.getElementById("slideMenu").style.transform = "translateX(0)";
+        }
+        function closeSlideMenu() {
+            document.getElementById("slideMenu").style.transform = "translateX(-100%)";
         }
 
-        // Function to close the slide-in menu
-        function closeSlideMenu() {
-            document.getElementById("slideMenu").style.transform = "translateX(-100%)"; // Slide out (off-screen)
-        }
-   </script>
+        // Fading logos
+        const logos = document.querySelectorAll('.logo-container img');
+        let currentLogo = 0;
+        setInterval(() => {
+            logos[currentLogo].classList.remove('active');
+            currentLogo = (currentLogo + 1) % logos.length;
+            logos[currentLogo].classList.add('active');
+        }, 5000);
+    </script>
 
 </body>
 </html>
