@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opiumdealer</title>
     <link rel="icon" href="https://gtaforums.com/uploads/monthly_2024_11/Untitled1.thumb.png.0202e1e495fbf0cf7d5ee6806fd37d38.png" type="image/x-icon">
+
+    <!-- Google Fonts Doto -->
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
       html, body {
           height: 100%;
           margin: 0;
           padding: 0;
-          font-family: Arial, sans-serif;
+          font-family: 'Doto', sans-serif; /* <-- Updated font */
           background-color: #000;
           color: white;
       }
@@ -32,20 +36,21 @@
           justify-content: center; /* horizontal center */
           align-items: center;     /* vertical center */
           overflow: hidden;
-     }
-
-     .logo-container img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -45%); /* center both axes */
-        max-width: 90%;
-        max-height: 90%;
-        width: auto;
-        height: auto;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
       }
+
+      .logo-container img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -45%); /* center but slightly lower */
+          max-width: 90%;
+          max-height: 90%;
+          width: auto;
+          height: auto;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+      }
+
       .logo-container img.active {
           opacity: 1;
       }
