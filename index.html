@@ -26,19 +26,21 @@
       /* Logo container for fading logos */
       .logo-container {
           position: relative;
-          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           max-width: 1000px;
-          height: auto;
+          max-height: 90vh;
+          width: 100%;
+          overflow: hidden;
       }
 
       .logo-container img {
           position: absolute;
-          top: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 100%;
+          max-width: 100%;
+          max-height: 90vh;
+          width: auto;
           height: auto;
-          object-fit: contain;
           opacity: 0;
           transition: opacity 1s ease-in-out;
       }
@@ -236,14 +238,22 @@
             document.getElementById("slideMenu").style.transform = "translateX(-100%)";
         }
 
-        // Fading logos
+        // Fading logos with brief empty fade
         const logos = document.querySelectorAll('.logo-container img');
         let currentLogo = 0;
+        const fadeDuration = 1000; // match CSS transition
+        const pauseDuration = 300; // brief invisible pause
+        const displayInterval = 5000; // time per logo including fade
+
         setInterval(() => {
-            logos[currentLogo].classList.remove('active');
-            currentLogo = (currentLogo + 1) % logos.length;
-            logos[currentLogo].classList.add('active');
-        }, 5000);
+            const current = logos[currentLogo];
+            current.classList.remove('active'); // fade out
+
+            setTimeout(() => {
+                currentLogo = (currentLogo + 1) % logos.length;
+                logos[currentLogo].classList.add('active'); // fade in next
+            }, fadeDuration + pauseDuration);
+        }, displayInterval);
     </script>
 
 </body>
