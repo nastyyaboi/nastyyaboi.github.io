@@ -162,15 +162,7 @@
           }
       }
 
-      /* Invisible audio iframe */
-      #audioPlayer {
-          position: absolute;
-          width: 0;
-          height: 0;
-          border: 0;
-      }
-
-      /* Music button */
+      /* Music button (updated small text version) */
       .music-btn {
           position: fixed;
           bottom: 25px;
@@ -179,15 +171,13 @@
           background-color: rgba(255, 255, 255, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.3);
           color: white;
-          border-radius: 50%;
-          width: 55px;
-          height: 55px;
-          font-size: 22px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          border-radius: 8px;
+          padding: 6px 14px;
+          font-size: 12px;
+          font-family: 'Doto', sans-serif;
           cursor: pointer;
-          backdrop-filter: blur(10px);
+          backdrop-filter: blur(8px);
+          letter-spacing: 1px;
           transition: all 0.3s ease;
       }
 
@@ -233,14 +223,14 @@
         <a href="https://www.nexusmods.com/thecrew/mods/5" target="_blank">MCLA FM │ The Crew</a>
     </div>
 
-    <!-- Invisible Google Drive MP3 iframe (autoplay disabled for button control) -->
-    <audio id="music" src="https://drive.usercontent.google.com/download?id=1-hHWyRx25OFSjL0Fo3oVcotfA0JYoT9B&export=download&authuser=0"></audio>
+    <!-- Music -->
+    <audio id="music" src="https://cdn.discordapp.com/attachments/1323093572232155143/1427406832162574469/thebrainwasher.mp3?ex=68eebfb4&is=68ed6e34&hm=bfd2f4feffac1f1e8923284cddaf3e61e285c3f66da438d476407fcd8abdc125&"></audio>
 
-    <!-- Music play/pause button -->
-    <button class="music-btn" id="musicBtn">▶</button>
+    <!-- Button -->
+    <button class="music-btn" id="musicBtn">PLAY</button>
 
     <script>
-        // Clock update
+        // Clock
         function updateClock() {
             var now = new Date();
             var hours = now.getHours();
@@ -260,11 +250,11 @@
         setInterval(updateClock, 1000);
         updateClock();
 
-        // Slide menu
+        // Slide Menu
         function openSlideMenu() { document.getElementById("slideMenu").style.transform = "translateX(0)"; }
         function closeSlideMenu() { document.getElementById("slideMenu").style.transform = "translateX(-100%)"; }
 
-        // Fading logos
+        // Fading Logos
         const logos = document.querySelectorAll('.logo-container img');
         let currentLogo = 0;
         const fadeDuration = 1000;
@@ -279,20 +269,25 @@
             }, fadeDuration + pauseDuration);
         }, displayInterval);
 
-        // Music play/pause
+        // Music play/pause (text-based)
         const music = document.getElementById('music');
         const musicBtn = document.getElementById('musicBtn');
         let isPlaying = false;
 
-        musicBtn.addEventListener('click', () => {
-            if (!isPlaying) {
-                music.play();
-                musicBtn.textContent = '❚❚';
-                isPlaying = true;
-            } else {
-                music.pause();
-                musicBtn.textContent = '▶';
-                isPlaying = false;
+        musicBtn.addEventListener('click', async () => {
+            try {
+                if (!isPlaying) {
+                    await music.play();
+                    musicBtn.textContent = 'pause';
+                    isPlaying = true;
+                } else {
+                    music.pause();
+                    musicBtn.textContent = 'play';
+                    isPlaying = false;
+                }
+            } catch (err) {
+                console.error('Audio play failed:', err);
+                alert('Audio could not play (possibly blocked or invalid URL)');
             }
         });
     </script>
