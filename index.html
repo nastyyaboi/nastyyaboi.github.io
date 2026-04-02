@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opiumdealer</title>
     <link rel="icon" href="https://gtaforums.com/uploads/monthly_2024_11/Untitled1.thumb.png.0202e1e495fbf0cf7d5ee6806fd37d38.png" type="image/x-icon">
-
     <link href="https://fonts.googleapis.com/css2?family=Doto:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -16,157 +15,25 @@
           font-family: 'Doto', sans-serif;
           background-color: #000;
           color: white;
+          overflow: hidden; /* Prevents scrollbars */
       }
 
-      .center-viewport {
-          height: 100vh;
+      /* Container for everything at the bottom */
+      .main-footer {
+          position: fixed;
+          bottom: 30px; /* Distance from bottom of screen */
+          left: 50%;
+          transform: translateX(-50%);
           display: flex;
+          flex-direction: column;
           align-items: center;
-          justify-content: center;
-          background: transparent;
-      }
-
-      .logo-container {
-          position: relative;
+          gap: 15px; /* Space between the rows */
           width: 100%;
-          height: 90vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          overflow: hidden;
+          z-index: 10;
       }
 
-      .logo-container img {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -45%);
-          max-width: 70%;
-          max-height: 70%;
-          width: auto;
-          height: auto;
-          opacity: 0;
-          transition: opacity 1s ease-in-out;
-      }
-
-      .logo-container img.active {
-          opacity: 1;
-      }
-
-      .social-icons {
-          position: absolute;
-          bottom: 20px;
-          left: 20px;   
-          display: flex;
-          gap: 5px;
-      }
-
-      .social-icons img {
-          width: 18px;
-          height: auto;
-          filter: invert(1); 
-          vertical-align: middle;
-      }
-        
-     .footer-text {
-          position: fixed;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          color: #333;
-          font-size: 10px;
-          font-weight: normal;
-          white-space: nowrap;
-          display: flex;
-          align-items: center;
-          gap: 15px; 
-     }
-
-      .clock {
-          font-size: 10px;
-          font-weight: bold;
-          color: #333;
-          padding: 5px 10px;
-      }
-
-      .hamburger-container {
-          position: fixed;
-          top: 20px;
-          left: 20px;
-          display: flex;
-          align-items: center;
-          color: white;
-          cursor: pointer;
-          z-index: 2;
-      }
-
-      .hamburger {
-          font-size: 20px;
-      }
-
-      .mods-text {
-          margin-left: 10px;
-          font-size: 10px;
-          color: #333;
-          font-weight: bold;
-      }
-
-      #slideMenu {
-          height: 100%;
-          width: 340px;
-          position: fixed;
-          top: 0;
-          left: 0;
-          background: rgba(0, 0, 0, 0.5);
-          backdrop-filter: blur(10px);
-          color: white;
-          overflow-x: hidden;
-          transition: transform 0.5s ease;
-          padding-top: 60px;
-          z-index: 1;
-          transform: translateX(-100%);
-      }
-
-      #slideMenu a {
-          padding: 8px 8px 8px 32px;
-          text-decoration: none;
-          font-size: 18px;
-          color: white;
-          display: block;
-          transition: 0.3s;
-      }
-
-      #slideMenu a:hover {
-          background-color: #575757;
-      }
-
-      .closebtn {
-          font-size: 38px;
-          position: absolute;
-          top: 11px;
-          right: 10px;
-          color: white;
-          background: none;
-          border: none;
-          cursor: pointer;
-          z-index: 2;
-      }
-
-      @media screen and (max-width: 600px) {
-          #slideMenu {
-              width: 80%;
-          }
-          .closebtn {
-              top: 15px;
-              right: 15px;
-          }
-      }
-
+      /* First Row: Music Button */
       .music-btn {
-          position: fixed;
-          bottom: 55px;
-          left: 50%;
-          transform: translateX(-50%);
           background: none;
           border: none;
           color: #eb4034;
@@ -176,35 +43,118 @@
           letter-spacing: 1px;
           transition: all 0.3s ease;
       }
+      .music-btn:hover { opacity: 0.4; transform: scale(1.1); }
 
-      .music-btn:hover {
-          opacity: 0.4;           
-          transform: translateX(-50%) scale(1.1);
+      /* Second Row: Footer Text and Clock */
+      .footer-group {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          white-space: nowrap;
       }
 
+      .footer-text {
+          color: #333;
+          font-size: 10px;
+          font-weight: normal;
+      }
+
+      .clock {
+          font-size: 10px;
+          font-weight: bold;
+          color: white;
+          background-color: #000;
+          padding: 5px 10px;
+          border-radius: 5px;
+          border: 1px solid #333;
+      }
+
+      /* Third Row: Social Icons */
+      .social-icons {
+          display: flex;
+          gap: 15px;
+          justify-content: center;
+      }
+
+      .social-icons img {
+          width: 16px;
+          height: auto;
+          filter: invert(1); 
+          transition: opacity 0.3s;
+      }
+      .social-icons img:hover { opacity: 0.6; }
+
+      /* Original Styles for Logo/Menu */
+      .logo-container {
+          position: relative;
+          width: 100%;
+          height: 80vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      .logo-container img {
+          position: absolute;
+          max-width: 70%;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+          transform: translateY(-5%);
+      }
+      .logo-container img.active { opacity: 1; }
+
+      .hamburger-container {
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          z-index: 20;
+      }
+      .mods-text { margin-left: 10px; font-size: 13px; font-weight: bold; }
+
+      #slideMenu {
+          height: 100%;
+          width: 340px;
+          position: fixed;
+          top: 0;
+          left: 0;
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(10px);
+          transition: transform 0.5s ease;
+          padding-top: 60px;
+          z-index: 15;
+          transform: translateX(-100%);
+      }
+      #slideMenu a { padding: 8px 32px; text-decoration: none; font-size: 18px; color: white; display: block; }
+      .closebtn { font-size: 38px; position: absolute; top: 11px; right: 10px; background: none; border: none; color: white; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div class="center-viewport logo-container">
+    <div class="logo-container">
         <img src="https://i.imgur.com/aEBGNxg.gif" class="active" alt="Logo 1">
         <img src="https://i.imgur.com/bFcUrJt.gif" alt="Logo 2">
         <img src="https://i.imgur.com/K68Mp0C.gif" alt="Logo 3">
         <img src="https://i.imgur.com/v433Weo.gif" alt="Logo 4">
     </div>
 
-    <div class="social-icons">
-        <a href="https://x.com/opmdlr" target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/330px-X_logo_2023.svg.png?_=20250120013756" alt="X">
-        </a>
-        <a href="https://www.youtube.com/@nastyyaboi" target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/YouTube_social_dark_squircle_%282017%29.svg/120px-YouTube_social_dark_squircle_%282017%29.svg.png" alt="YouTube">
-        </a>
-    </div>
+    <div class="main-footer">
+        <button class="music-btn" id="musicBtn">opiumdealer</button>
 
-    <div class="footer-text">
-        <span>© 2026 OD. some rights reserved.</span>
-        <div id="clock" class="clock"></div>
+        <div class="footer-group">
+            <span class="footer-text">© 2026 OD. some rights reserved.</span>
+            <div id="clock" class="clock"></div>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://x.com/opmdlr" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/330px-X_logo_2023.svg.png" alt="X">
+            </a>
+            <a href="https://www.youtube.com/@nastyyaboi" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/YouTube_social_dark_squircle_%282017%29.svg/120px-YouTube_social_dark_squircle_%282017%29.svg.png" alt="YouTube">
+            </a>
+        </div>
     </div>
 
     <div class="hamburger-container" onclick="openSlideMenu()">
@@ -214,51 +164,39 @@
 
     <div id="slideMenu">
         <button class="closebtn" onclick="closeSlideMenu()">&times;</button>
-        <a href="https://gtaforums.com/topic/989098-console-visuals-the-complete-edition/" target="_blank">Console Visuals │ GTAIV</a>
-        <a href="https://gtaforums.com/topic/989368-compact-hud/" target="_blank">Compact HUD │ GTAIV</a>
-        <a href="https://www.dixmor-hospital.com/mods/view/complete-ui-redux" target="_blank">Complete UI Redux │ Manhunt</a>
-        <a href="https://gtaforums.com/topic/983493-grand-theft-auto-liberty-city-01/" target="_blank">Liberty City '01 │ GTAIII</a>
-        <a href="https://www.nexusmods.com/thecrew/mods/5" target="_blank">MCLA FM │ The Crew</a>
+        <a href="https://gtaforums.com/topic/989098-console-visuals-the-complete-edition/">Console Visuals │ GTAIV</a>
+        <a href="https://gtaforums.com/topic/989368-compact-hud/">Compact HUD │ GTAIV</a>
+        <a href="https://www.dixmor-hospital.com/mods/view/complete-ui-redux">Complete UI Redux │ Manhunt</a>
+        <a href="https://gtaforums.com/topic/983493-grand-theft-auto-liberty-city-01/">Liberty City '01 │ GTAIII</a>
+        <a href="https://www.nexusmods.com/thecrew/mods/5">MCLA FM │ The Crew</a>
     </div>
-
-    <button class="music-btn" id="musicBtn">opiumdealer</button>
 
     <script>
         function updateClock() {
             var now = new Date();
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
-            var seconds = now.getSeconds();
-            var period = "AM";
-            if (hours >= 12) { period = "PM"; if (hours > 12) hours -= 12; }
-            if (hours === 0) hours = 12;
+            var hours = now.getHours(), minutes = now.getMinutes(), seconds = now.getSeconds();
+            var period = hours >= 12 ? "PM" : "AM";
+            if (hours > 12) hours -= 12; if (hours === 0) hours = 12;
             minutes = minutes < 10 ? "0"+minutes : minutes;
             seconds = seconds < 10 ? "0"+seconds : seconds;
-            var day = now.getDate();
-            var month = now.getMonth() + 1;
-            var year = now.getFullYear();
+            var day = now.getDate(), month = now.getMonth() + 1, year = now.getFullYear();
             var dayOfWeek = now.toLocaleString('en-us', { weekday: 'long' });
             document.getElementById('clock').textContent = dayOfWeek + ", " + month + "/" + day + "/" + year + " | " + hours + ":" + minutes + ":" + seconds + " " + period;
         }
-        setInterval(updateClock, 1000);
-        updateClock();
+        setInterval(updateClock, 1000); updateClock();
 
         function openSlideMenu() { document.getElementById("slideMenu").style.transform = "translateX(0)"; }
         function closeSlideMenu() { document.getElementById("slideMenu").style.transform = "translateX(-100%)"; }
 
         const logos = document.querySelectorAll('.logo-container img');
         let currentLogo = 0;
-        const fadeDuration = 1000;
-        const pauseDuration = 300;
-        const displayInterval = 20000;
         setInterval(() => {
-            const current = logos[currentLogo];
-            current.classList.remove('active');
+            logos[currentLogo].classList.remove('active');
             setTimeout(() => {
                 currentLogo = (currentLogo + 1) % logos.length;
                 logos[currentLogo].classList.add('active');
-            }, fadeDuration + pauseDuration);
-        }, displayInterval);
+            }, 1300);
+        }, 20000);
     </script>
 </body>
 </html>
