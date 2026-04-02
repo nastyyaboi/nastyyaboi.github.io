@@ -69,13 +69,15 @@
       }
 
       .footer-text {
-          position: fixed;
-          bottom: 20px;
-          left: 45%;
-          color: #333;
-          font-size: 10px;
-          font-weight: normal;
-      }
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #333;
+    font-size: 10px;
+    font-weight: normal;
+    white-space: nowrap;
+     }
 
       .clock {
           position: absolute;
@@ -101,7 +103,7 @@
       }
 
       .hamburger {
-          font-size: 30px;
+          font-size: 20px;
       }
 
       .mods-text {
@@ -196,7 +198,7 @@
 
     <div class="social-icons">
         <a href="https://x.com/opmdlr" target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/X_logo_2023_original.svg/300px-X_logo_2023_original.svg.png" alt="X">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/330px-X_logo_2023.svg.png?_=20250120013756" alt="X">
         </a>
         <a href="https://www.youtube.com/@nastyyaboi" target="_blank" rel="noopener noreferrer">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/YouTube_social_dark_squircle_%282017%29.svg/120px-YouTube_social_dark_squircle_%282017%29.svg.png" alt="YouTube">
@@ -220,11 +222,8 @@
         <a href="https://www.nexusmods.com/thecrew/mods/5" target="_blank">MCLA FM │ The Crew</a>
     </div>
 
-    <!-- Music -->
-    <audio id="music" src="https://files.catbox.moe/jkh3z3.mp3"></audio>
-
     <!-- Button -->
-    <button class="music-btn" id="musicBtn">play encore</button>
+    <button class="music-btn" id="musicBtn">opiumdealer</button>
 
     <script>
         // Clock
@@ -266,27 +265,6 @@
             }, fadeDuration + pauseDuration);
         }, displayInterval);
 
-        // Music play/pause (text-based)
-        const music = document.getElementById('music');
-        const musicBtn = document.getElementById('musicBtn');
-        let isPlaying = false;
-
-        musicBtn.addEventListener('click', async () => {
-            try {
-                if (!isPlaying) {
-                    await music.play();
-                    musicBtn.textContent = 'pause';
-                    isPlaying = true;
-                } else {
-                    music.pause();
-                    musicBtn.textContent = 'play';
-                    isPlaying = false;
-                }
-            } catch (err) {
-                console.error('Audio play failed:', err);
-                alert('Audio could not play (possibly blocked or invalid URL)');
-            }
-        });
     </script>
 </body>
 </html>
