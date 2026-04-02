@@ -17,7 +17,6 @@
           color: white;
       }
 
-      /* REVERTED: Original Center Viewport & Logo Container */
       .center-viewport {
           height: 100vh;
           display: flex;
@@ -53,7 +52,6 @@
           opacity: 1;
       }
 
-
       .main-footer {
           position: fixed;
           bottom: 20px;
@@ -74,7 +72,7 @@
           background: none;
           border: none;
           color: #eb4034;
-          font-size: 12px;
+          font-size: 10px;
           font-family: 'Doto', sans-serif;
           cursor: pointer;
           letter-spacing: 1px;
@@ -140,6 +138,23 @@
       }
       #slideMenu a { padding: 8px 32px; text-decoration: none; font-size: 18px; color: white; display: block; }
       .closebtn { font-size: 38px; position: absolute; top: 11px; right: 10px; background: none; border: none; color: white; cursor: pointer; }
+
+      /* MOBILE FIX: Prevents text cutoff */
+      @media screen and (max-width: 600px) {
+          .footer-group {
+              flex-direction: column; 
+              gap: 5px;
+              white-space: normal;
+              text-align: center;
+          }
+          .main-footer {
+              bottom: 15px;
+              width: 95%;
+          }
+          .clock {
+              padding: 2px 0; 
+          }
+      }
 
     </style>
 </head>
