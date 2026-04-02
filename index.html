@@ -15,74 +15,16 @@
           font-family: 'Doto', sans-serif;
           background-color: #000;
           color: white;
-          overflow: hidden; /* Prevents scrollbars */
       }
 
-      /* Container for everything at the bottom */
-      .main-footer {
-          position: fixed;
-          bottom: 30px; /* Distance from bottom of screen */
-          left: 50%;
-          transform: translateX(-50%);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 15px; /* Space between the rows */
-          width: 100%;
-          z-index: 10;
-      }
-
-      /* First Row: Music Button */
-      .music-btn {
-          background: none;
-          border: none;
-          color: #eb4034;
-          font-size: 10px;
-          font-family: 'Doto', sans-serif;
-          cursor: pointer;
-          letter-spacing: 1px;
-          transition: all 0.3s ease;
-      }
-      .music-btn:hover { opacity: 0.4; transform: scale(1.1); }
-
-      /* Second Row: Footer Text and Clock */
-      .footer-group {
+      /* REVERTED: Original Center Viewport & Logo Container */
+      .center-viewport {
+          height: 100vh;
           display: flex;
           align-items: center;
-          gap: 15px;
-          white-space: nowrap;
-      }
-
-      .footer-text {
-          color: #333;
-          font-size: 10px;
-          font-weight: normal;
-      }
-
-      .clock {
-          font-size: 10px;
-          font-weight: bold;
-          color: white;
-          background-color: #000;
-          padding: 5px 10px;
-          border-radius: 5px;
-          border: 1px solid #333;
-      }
-
-      /* Third Row: Social Icons */
-      .social-icons {
-          display: flex;
-          gap: 15px;
           justify-content: center;
+          background: transparent;
       }
-
-      .social-icons img {
-          width: 16px;
-          height: auto;
-          filter: invert(1); 
-          transition: opacity 0.3s;
-      }
-      .social-icons img:hover { opacity: 0.6; }
 
       .logo-container {
           position: relative;
@@ -106,6 +48,85 @@
           opacity: 0;
           transition: opacity 1s ease-in-out;
       }
+
+      .logo-container img.active {
+          opacity: 1;
+      }
+
+      /* UPDATED: Centered Footer Stack */
+      .main-footer {
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px; 
+          width: 100%;
+          z-index: 10;
+          pointer-events: none; /* Allows clicks to pass through container */
+      }
+      
+      .main-footer > * { pointer-events: auto; } /* Re-enable clicks for buttons/links */
+
+      .music-btn {
+          background: none;
+          border: none;
+          color: #eb4034;
+          font-size: 10px;
+          font-family: 'Doto', sans-serif;
+          cursor: pointer;
+          letter-spacing: 1px;
+          transition: all 0.3s ease;
+      }
+      .music-btn:hover { opacity: 0.4; transform: scale(1.1); }
+
+      .footer-group {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          white-space: nowrap;
+      }
+
+      .footer-text {
+          color: #333;
+          font-size: 10px;
+          font-weight: normal;
+      }
+
+      .clock {
+          font-size: 10px;
+          font-weight: bold;
+          color: white;
+          background-color: #000;
+          padding: 5px 10px;
+          border-radius: 5px;
+          border: 1px solid #333;
+      }
+
+      .social-icons {
+          display: flex;
+          gap: 15px;
+          justify-content: center;
+      }
+
+      .social-icons img {
+          width: 16px;
+          height: auto;
+          filter: invert(1);
+      }
+
+      /* Original Menu Styles */
+      .hamburger-container {
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          z-index: 20;
+      }
       .mods-text { margin-left: 10px; font-size: 13px; font-weight: bold; }
 
       #slideMenu {
@@ -123,11 +144,12 @@
       }
       #slideMenu a { padding: 8px 32px; text-decoration: none; font-size: 18px; color: white; display: block; }
       .closebtn { font-size: 38px; position: absolute; top: 11px; right: 10px; background: none; border: none; color: white; cursor: pointer; }
+
     </style>
 </head>
 <body>
 
-    <div class="logo-container">
+    <div class="center-viewport logo-container">
         <img src="https://i.imgur.com/aEBGNxg.gif" class="active" alt="Logo 1">
         <img src="https://i.imgur.com/bFcUrJt.gif" alt="Logo 2">
         <img src="https://i.imgur.com/K68Mp0C.gif" alt="Logo 3">
@@ -186,7 +208,8 @@
         const logos = document.querySelectorAll('.logo-container img');
         let currentLogo = 0;
         setInterval(() => {
-            logos[currentLogo].classList.remove('active');
+            const current = logos[currentLogo];
+            current.classList.remove('active');
             setTimeout(() => {
                 currentLogo = (currentLogo + 1) % logos.length;
                 logos[currentLogo].classList.add('active');
