@@ -77,22 +77,16 @@
           font-size: 10px;
           font-weight: normal;
           white-space: nowrap;
-          
-          /* NEW: These two lines align the text and clock */
           display: flex;
           align-items: center;
-          gap: 15px; /* Space between text and clock */
+          gap: 15px; 
      }
 
       .clock {
-          /* CHANGED: Removed absolute positioning */
           font-size: 10px;
           font-weight: bold;
-          color: white;
-          background-color: #000;
+          color: #333;
           padding: 5px 10px;
-          border-radius: 5px;
-          border: 1px solid #333; /* Added a subtle border so it doesn't vanish into the BG */
       }
 
       .hamburger-container {
@@ -170,7 +164,7 @@
 
       .music-btn {
           position: fixed;
-          bottom: 55px; /* Bumped up slightly to avoid overlapping the new footer line */
+          bottom: 55px;
           left: 50%;
           transform: translateX(-50%);
           background: none;
